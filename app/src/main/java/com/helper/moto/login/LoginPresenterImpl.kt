@@ -1,11 +1,17 @@
 package com.helper.moto.login
 
-class LoginPresenterImpl(val loginView: LoginView) : LoginPresenter {
+class LoginPresenterImpl(
+    private val loginView: LoginView
+) : LoginPresenter {
 
 
 
     override fun doLogin(userName: String?, password: String?) {
-        TODO("Not yet implemented")
+        if(userName.equals("user") && password.equals("password")){
+            loginView.showLoginFormView(true)
+        } else{
+            loginView.showMessage("error","Invalid username or password")
+        }
     }
 
     override fun validateEmail(email: String?): Boolean {
