@@ -1,16 +1,18 @@
 package com.helper.moto.login
 
+import com.helper.moto.login.model.LoginModel
+
 class LoginPresenterImpl(
     private val loginView: LoginView
 ) : LoginPresenter {
-
-
+    private val loginModel = LoginModel()
 
     override fun doLogin(userName: String?, password: String?) {
-        if(userName.equals("user") && password.equals("password")){
-            loginView.showLoginFormView(true)
-        } else{
-            loginView.showMessage("error","Invalid username or password")
+        if (userName != null && password != null) {
+            val loginData = loginModel.doLogin(userName, password)
+            if (loginData != "FORBIDDEN") {
+                loginView.launchMainApplication()
+            }
         }
     }
 

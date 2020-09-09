@@ -2,7 +2,7 @@ package com.helper.moto.login
 
 import com.helper.moto.util.BasePresenter
 
-interface LoginPresenter: BasePresenter {
+interface LoginPresenter : BasePresenter {
     fun doLogin(
         userName: String?,
         password: String?

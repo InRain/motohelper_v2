@@ -3,7 +3,6 @@ package com.helper.moto.login
 import android.Manifest
 import android.app.Activity
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -66,8 +65,8 @@ class LoginActivity : Activity(), LoginView {
 
     }
 
-    override fun launchUserProfileActivity() {
-        TODO("Not yet implemented")
+    override fun launchMainApplication() {
+        Toast.makeText(this, "Launching main app", Toast.LENGTH_SHORT).show()
     }
 
     override fun showMessage(type: String?, message: String?) {
@@ -140,8 +139,8 @@ class LoginActivity : Activity(), LoginView {
 
     private fun openAppSettings() {
         val intent = Intent()
-        intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-        intent.setData(Uri.parse("package:$packageName"))
+        intent.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
+        intent.data = Uri.parse("package:$packageName")
         startActivityForResult(intent, INTERNET_PERMISSION_CODE)
     }
 
