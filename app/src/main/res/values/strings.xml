@@ -1,16 +1,27 @@
 <resources>
+    <!--COMMON-->
     <string name="app_name">Motohelper</string>
     <string name="title_activity_login">LoginActivity</string>
+    <string name="cancel">Cancel</string>
+    <!--LOGIN SCREEN-->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in</string>
     <string name="action_register">Register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="registration">Registration</string>
     <string name="login_failed">"Login failed"</string>
     <string name="permission_request_dialog_message_text">We really need these permissions</string>
     <string name="permission_request_dialog_positive_button_text">Go to settings</string>
     <string name="permission_request_dialog_negative_button_text">No, close application</string>
+    <!--REGISTER SCREEN-->
+    <string name="enter_email">enter email</string>
+    <string name="enter_username">enter user name</string>
+    <string name="enter_phone">enter phone</string>
+    <string name="enter_password">enter password</string>
+    <string name="register">Register</string>
+    <string name="confirm_password">confirm password</string>
+    <string name="enter_full_name">enter your name</string>
+    <string name="enter_birth_date">enter your birth date</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="title_activity_register">RegisterActivity</string>
 </resources>

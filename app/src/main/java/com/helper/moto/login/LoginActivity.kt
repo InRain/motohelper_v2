@@ -6,25 +6,29 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
+import android.opengl.Visibility
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import com.helper.moto.R
+import com.helper.moto.register.RegisterActivity
 
 
 class LoginActivity : Activity(), LoginView {
 
-    private lateinit var loginPresenter: LoginPresenter;
-    private lateinit var signInButton: Button;
-    private lateinit var registerButton: Button;
-    private lateinit var usernameEditText: EditText;
-    private lateinit var passwordEditText: EditText;
+    private lateinit var loginPresenter: LoginPresenter
+    private lateinit var signInButton: Button
+    private lateinit var registerButton: Button
+    private lateinit var usernameEditText: EditText
+    private lateinit var passwordEditText: EditText
+    private lateinit var progressBar: ProgressBar
 
     private val INTERNET_PERMISSION_CODE: Int = 10001
     private val ACCESS_FINE_LOCATION_PERMISSON_CODE: Int = 20002
@@ -42,59 +46,66 @@ class LoginActivity : Activity(), LoginView {
                 ACCESS_FINE_LOCATION_PERMISSON_CODE
             )
         }
-        loginPresenter = LoginPresenterImpl(this);
-        loginPresenter.start();
+        loginPresenter = LoginPresenterImpl(this)
+        loginPresenter.start()
     }
 
     override fun showProgressBar(active: Boolean) {
-        TODO("Not yet implemented")
+        if (active) {
+            progressBar.visibility = View.VISIBLE
+        } else {
+            progressBar.visibility = View.GONE
+        }
     }
 
     override fun initializeUI() {
-        signInButton = findViewById(R.id.signIn);
-        registerButton = findViewById(R.id.register);
-        usernameEditText = findViewById(R.id.username);
-        passwordEditText = findViewById(R.id.password);
+        signInButton = findViewById(R.id.signIn)
+        registerButton = findViewById(R.id.register)
+        usernameEditText = findViewById(R.id.username)
+        passwordEditText = findViewById(R.id.password)
+        progressBar = findViewById(R.id.progressBar)
 
-        signInButton.setOnClickListener(View.OnClickListener {
+        signInButton.setOnClickListener {
             loginPresenter.doLogin(
                 usernameEditText.text.toString(),
                 passwordEditText.text.toString()
             )
-        })
+        }
+
+        registerButton.setOnClickListener{
+            loginPresenter.showRegisterScreen()
+        }
 
     }
 
     override fun launchMainApplication() {
-        Toast.makeText(this, "Launching main app", Toast.LENGTH_SHORT).show()
+
     }
 
     override fun showMessage(type: String?, message: String?) {
-        Log.e("myApp_all", "MESSAGE: Type: ${type} Text: ${message}");
+        Log.e("myApp_all", "MESSAGE: Type: $type Text: $message")
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
-    override fun showLoginFormView(active: Boolean) {
-        Log.e("myApp_all", "User logged in");
+    override fun showRegisterScreen() {
+        val registerIntent = Intent(this, RegisterActivity::class.java)
+        startActivity(registerIntent);
     }
 
-    override fun getMsgString(resourceId: Int): String? {
-        TODO("Not yet implemented")
-    }
 
     override fun setPresenter(presenter: LoginPresenter?) {
         if (presenter != null) {
             loginPresenter = presenter
-        };
+        }
     }
 
     private fun requestPermission(permission: String, requestCode: Int) {
-        // запрашиваем разрешение
         ActivityCompat.requestPermissions(this, arrayOf(permission), requestCode)
     }
 
     private fun isPermissionGranted(permission: String): Boolean {
         val permissionCheck = checkSelfPermission(permission)
-        return permissionCheck.equals(PackageManager.PERMISSION_GRANTED)
+        return permissionCheck == PackageManager.PERMISSION_GRANTED
     }
 
     override fun onRequestPermissionsResult(
@@ -132,9 +143,8 @@ class LoginActivity : Activity(), LoginView {
         alertDialogBuilder.setPositiveButton(positiveText) { _, _ -> openAppSettings() }
         alertDialogBuilder.setNegativeButton(negativeText) { _, _ -> finish() }
 
-        val dialog = alertDialogBuilder.create();
+        val dialog = alertDialogBuilder.create()
         dialog.show()
-
     }
 
     private fun openAppSettings() {
@@ -143,6 +153,4 @@ class LoginActivity : Activity(), LoginView {
         intent.data = Uri.parse("package:$packageName")
         startActivityForResult(intent, INTERNET_PERMISSION_CODE)
     }
-
-
 }

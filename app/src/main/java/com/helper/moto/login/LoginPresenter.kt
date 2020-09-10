@@ -11,4 +11,5 @@ interface LoginPresenter : BasePresenter {
     fun validateEmail(email: String?): Boolean
     fun validatePassword(password: String?): Boolean
     fun getMessage(code: Any?): String?
+    fun showRegisterScreen()
 }
