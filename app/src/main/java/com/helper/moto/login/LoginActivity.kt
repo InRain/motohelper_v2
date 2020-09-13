@@ -79,6 +79,7 @@ class LoginActivity : Activity(), LoginView {
     }
 
     override fun launchMainApplication() {
+        Toast.makeText(this, "Launching main app", Toast.LENGTH_SHORT).show()
 
     }
 
