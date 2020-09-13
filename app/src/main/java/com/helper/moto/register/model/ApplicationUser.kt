@@ -8,7 +8,6 @@ data class ApplicationUser (
     @SerializedName("firstName") val firstName:String,
     @SerializedName("phone") val phone:String,
     @SerializedName("email") val email:String,
-    @SerializedName("birthDate") val birthDate:Date,
-    @SerializedName("password") val password:Date,
-    @SerializedName("roles") val roles:List<Role>
+    @SerializedName("password") val password:String,
+    @SerializedName("roles") val roles:ArrayList<Role>
 )

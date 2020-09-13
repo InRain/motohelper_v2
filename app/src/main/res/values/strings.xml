@@ -3,6 +3,8 @@
     <string name="app_name">Motohelper</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+
     <!--LOGIN SCREEN-->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -13,6 +15,7 @@
     <string name="permission_request_dialog_message_text">We really need these permissions</string>
     <string name="permission_request_dialog_positive_button_text">Go to settings</string>
     <string name="permission_request_dialog_negative_button_text">No, close application</string>
+
     <!--REGISTER SCREEN-->
     <string name="enter_email">enter email</string>
     <string name="enter_username">enter user name</string>
@@ -24,4 +27,8 @@
     <string name="enter_birth_date">enter your birth date</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="title_activity_register">RegisterActivity</string>
+    <string name="welcome">Welcome!</string>
+    <string name="welcome_dialog_message">Congratulations!\n You are successfully registered.\n Please sign in into application with provided credentials</string>
+    <string name="passwords_are_not_equals">You have provided different passwords</string>
+
 </resources>
