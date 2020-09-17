@@ -1,5 +1,5 @@
 package com.helper.moto.util
 
-enum class PreferencesName {
+enum class PreferencesName() {
     AUTH
 }

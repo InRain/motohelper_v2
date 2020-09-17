@@ -9,6 +9,7 @@
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in</string>
+    <string name="check_save_login_data">Remember me</string>
     <string name="action_register">Register</string>
     <string name="registration">Registration</string>
     <string name="login_failed">"Login failed"</string>

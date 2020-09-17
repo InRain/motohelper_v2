@@ -30,7 +30,9 @@ class LoginPresenterImpl(
             }
             loginView.showProgressBar(false);
             loginView.launchMainApplication()
+            return
         }
+        return
     }
 
     override fun validateEmail(email: String?): Boolean {
