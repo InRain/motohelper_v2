@@ -18,6 +18,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import com.helper.moto.R
+import com.helper.moto.mainscreen.MainMapActivity
 import com.helper.moto.register.RegisterActivity
 
 
@@ -79,8 +80,9 @@ class LoginActivity : Activity(), LoginView {
     }
 
     override fun launchMainApplication() {
-        Toast.makeText(this, "Launching main app", Toast.LENGTH_SHORT).show()
-
+        val mainAppIntent = Intent(this, MainMapActivity::class.java)
+        startActivity(mainAppIntent)
+        finish()
     }
 
     override fun showMessage(type: String?, message: String?) {
