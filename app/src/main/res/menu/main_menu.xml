@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_map"
+            android:icon="@drawable/ic_vector_map"
+            android:title="@string/map_and_markers" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_vector_settings"
+            android:title="@string/settings" />
+        <item
+            android:id="@+id/nav_filtering"
+            android:icon="@drawable/ic_vector_filter"
+            android:title="@string/filter_settings" />
+    </group>
+
+    <item android:title="@string/social_networks">
+        <menu>
+            <item
+                android:id="@+id/nav_vk"
+                android:icon="@drawable/ic_vkontakte"
+                android:title="@string/vk" />
+            <item
+                android:id="@+id/nav_youtube"
+                android:icon="@drawable/ic_youtube"
+                android:title="@string/youtube" />
+        </menu>
+    </item>
+    <item android:title="@string/actions">
+        <menu>
+            <item
+                android:id="@+id/nav_refresh"
+                android:icon="@drawable/vector_refresh"
+                android:title="@string/action_refresh" />
+        </menu>
+    </item>
+
+</menu>

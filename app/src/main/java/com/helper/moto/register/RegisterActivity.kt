@@ -111,7 +111,7 @@ class RegisterActivity : Activity(), RegisterView {
     override fun showSuccessDialog() {
         val alertDialogBuilder = AlertDialog.Builder(this)
         alertDialogBuilder.setTitle(resources.getString(R.string.welcome))
-            .setMessage(resources.getString(R.string.welcome))
+            .setMessage(resources.getString(R.string.welcome_dialog_message))
             .setPositiveButton(resources.getText(R.string.ok)) { dialog, which ->
                 dialog.cancel()
             }

@@ -14,7 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-
+        <activity
+            android:name=".mainscreen.MainMapActivity"
+            android:label="@string/title_activity_main_map"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".register.RegisterActivity"
             android:label="@string/title_activity_register">
