@@ -10,25 +10,13 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.helper.moto.R
-import com.helper.moto.register.model.ApplicationUser
-import com.helper.moto.register.model.Role
+import com.helper.moto.register.model.dto.ApplicationUser
+import com.helper.moto.register.model.dto.Role
+import kotlinx.android.synthetic.main.activity_register.*
 
 
 class RegisterActivity : Activity(), RegisterView {
 
-    private lateinit var emailEditText: EditText
-    private lateinit var phoneEditText: EditText
-    private lateinit var userNameEditText: EditText
-    private lateinit var fullNameEditText: EditText
-    private lateinit var passwordEditText: EditText
-    private lateinit var confirmPasswordEditText: EditText
-
-    private lateinit var errorMessageTextView: TextView
-
-    private lateinit var progressLayout: ConstraintLayout
-
-    private lateinit var registerButton: Button
-    private lateinit var cancelButton: Button
 
     private lateinit var registerPresenter: RegisterPresenter
 
@@ -36,7 +24,7 @@ class RegisterActivity : Activity(), RegisterView {
         super.onCreate(savedInstanceState)
         registerPresenter = RegisterPresenterImplementation(this)
         setContentView(R.layout.activity_register)
-        registerPresenter.start()
+        initializeUI()
     }
 
     override fun showProgressBar(active: Boolean) {
@@ -48,31 +36,10 @@ class RegisterActivity : Activity(), RegisterView {
         }
     }
 
-    override fun initializeUI() {
+    fun initializeUI() {
         val inputClickListener = View.OnFocusChangeListener { v, hasFocus ->
             v.background.setTint(resources.getColor(R.color.colorGrey))
         }
-
-        emailEditText = findViewById(R.id.email)
-        phoneEditText = findViewById(R.id.phone)
-        userNameEditText = findViewById(R.id.userName)
-        fullNameEditText = findViewById(R.id.fullName)
-        passwordEditText = findViewById(R.id.password)
-        confirmPasswordEditText = findViewById(R.id.passwordConfirm)
-
-        errorMessageTextView = findViewById(R.id.errorTextView)
-
-        emailEditText.onFocusChangeListener = inputClickListener
-        phoneEditText.onFocusChangeListener = inputClickListener
-        userNameEditText.onFocusChangeListener = inputClickListener
-        fullNameEditText.onFocusChangeListener = inputClickListener
-        passwordEditText.onFocusChangeListener = inputClickListener
-        confirmPasswordEditText.onFocusChangeListener = inputClickListener
-
-        progressLayout = findViewById(R.id.progressLayout)
-
-        registerButton = findViewById(R.id.registerButton)
-        cancelButton = findViewById(R.id.cancelButton)
 
         registerButton.setOnClickListener {
             if (registerPresenter.validateUserInput(
@@ -114,6 +81,7 @@ class RegisterActivity : Activity(), RegisterView {
             .setMessage(resources.getString(R.string.welcome_dialog_message))
             .setPositiveButton(resources.getText(R.string.ok)) { dialog, which ->
                 dialog.cancel()
+                finish()
             }
         alertDialogBuilder.create()
         alertDialogBuilder.show()
