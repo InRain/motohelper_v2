@@ -1,4 +1,4 @@
-package com.helper.moto.util
+package com.helper.moto.basecomponents
 
 import com.google.gson.annotations.SerializedName
 

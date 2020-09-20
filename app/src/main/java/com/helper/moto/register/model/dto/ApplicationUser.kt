@@ -1,4 +1,4 @@
-package com.helper.moto.register.model
+package com.helper.moto.register.model.dto
 
 import com.google.gson.annotations.SerializedName
 import java.util.*

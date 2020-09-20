@@ -55,7 +55,7 @@
         app:layout_constraintVertical_bias="1.0">
 
         <TextView
-            android:id="@+id/errorTextView"
+            android:id="@+id/errorMessageTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -68,7 +68,7 @@
             />
 
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/emailEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -79,10 +79,10 @@
             android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/errorTextView" />
+            app:layout_constraintTop_toBottomOf="@+id/errorMessageTextView" />
 
         <EditText
-            android:id="@+id/phone"
+            android:id="@+id/phoneEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -93,10 +93,10 @@
             android:inputType="phone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/email" />
+            app:layout_constraintTop_toBottomOf="@+id/emailEditText" />
 
         <EditText
-            android:id="@+id/userName"
+            android:id="@+id/userNameEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -107,10 +107,10 @@
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/phone" />
+            app:layout_constraintTop_toBottomOf="@+id/phoneEditText" />
 
         <EditText
-            android:id="@+id/fullName"
+            android:id="@+id/fullNameEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -120,11 +120,11 @@
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/userName" />
+            app:layout_constraintTop_toBottomOf="@+id/userNameEditText" />
 
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/passwordEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -136,10 +136,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fullName" />
+            app:layout_constraintTop_toBottomOf="@+id/fullNameEditText" />
 
         <EditText
-            android:id="@+id/passwordConfirm"
+            android:id="@+id/confirmPasswordEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -150,7 +150,7 @@
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/password" />
+            app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout2"
@@ -163,7 +163,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/passwordConfirm"
+            app:layout_constraintTop_toBottomOf="@+id/confirmPasswordEditText"
             app:layout_constraintVertical_bias="0.110000014">
 
             <Button

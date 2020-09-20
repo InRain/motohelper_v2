@@ -9,7 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.helper.moto.R
 
 
-class MainMapActivity : AppCompatActivity() {
+class MainMapActivity : MainMapPresenter ,AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,4 +25,5 @@ class MainMapActivity : AppCompatActivity() {
         drawer.addDrawerListener(toggle)
         toggle.syncState()
     }
+
 }

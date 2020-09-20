@@ -7,7 +7,6 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.opengl.Visibility
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
@@ -18,7 +17,8 @@ import androidx.core.app.ActivityCompat
 import com.helper.moto.R
 import com.helper.moto.mainscreen.MainMapActivity
 import com.helper.moto.register.RegisterActivity
-import com.helper.moto.util.PreferencesName
+import com.helper.moto.basecomponents.PreferencesName
+import kotlinx.android.synthetic.main.activity_login.*
 
 const val LOGIN_KEY:String = "LOGIN"
 const val PASSWORD_KEY:String = "PASSWORD"
@@ -26,13 +26,6 @@ const val PASSWORD_KEY:String = "PASSWORD"
 class LoginActivity : Activity(), LoginView {
 
     private lateinit var loginPresenter: LoginPresenter
-    private lateinit var signInButton: Button
-    private lateinit var registerButton: Button
-    private lateinit var usernameEditText: EditText
-    private lateinit var passwordEditText: EditText
-    private lateinit var progressBar: ProgressBar
-
-    private lateinit var rememberMeCheckBox: CheckBox
 
     private val INTERNET_PERMISSION_CODE: Int = 10001
     private val ACCESS_FINE_LOCATION_PERMISSON_CODE: Int = 20002
@@ -43,6 +36,7 @@ class LoginActivity : Activity(), LoginView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        initializeUI()
         sharedPreferences = getSharedPreferences(PreferencesName.AUTH.name, Context.MODE_PRIVATE)
         if (!isPermissionGranted(Manifest.permission.INTERNET)) {
             requestPermission(Manifest.permission.INTERNET, INTERNET_PERMISSION_CODE)
@@ -56,11 +50,7 @@ class LoginActivity : Activity(), LoginView {
         loginPresenter = LoginPresenterImpl(this)
         val login = sharedPreferences.getString(LOGIN_KEY,null)
         val password = sharedPreferences.getString(PASSWORD_KEY,null)
-        loginPresenter.start()
 
-        if(login != null && password!=null){
-            loginPresenter.doLogin(login,password)
-        }
     }
 
     override fun showProgressBar(active: Boolean) {
@@ -71,24 +61,16 @@ class LoginActivity : Activity(), LoginView {
         }
     }
 
-    override fun initializeUI() {
-        signInButton = findViewById(R.id.signIn)
-        registerButton = findViewById(R.id.register)
-        usernameEditText = findViewById(R.id.username)
-        passwordEditText = findViewById(R.id.password)
-        progressBar = findViewById(R.id.progressBar)
-
-        rememberMeCheckBox = findViewById(R.id.rememberMeCheckBox)
-
+    fun initializeUI() {
         signInButton.setOnClickListener {
             if(rememberMeCheckBox.isChecked){
                 val editor = sharedPreferences.edit()
-                editor.putString(LOGIN_KEY,usernameEditText.text.toString())
+                editor.putString(LOGIN_KEY,userNameEditText.text.toString())
                 editor.putString(PASSWORD_KEY,passwordEditText.text.toString())
                 editor.apply()
             }
             loginPresenter.doLogin(
-                usernameEditText.text.toString(),
+                userNameEditText.text.toString(),
                 passwordEditText.text.toString()
             )
         }
