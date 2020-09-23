@@ -5,6 +5,9 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".MotoHelperApplication"
@@ -17,7 +20,7 @@
         <activity
             android:name=".mainscreen.MainMapActivity"
             android:label="@string/title_activity_main_map"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".register.RegisterActivity"
             android:label="@string/title_activity_register">
@@ -34,6 +37,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.google.android.maps.V2.API.KEY"
+            android:value="AIzaSyBf9S6exX8Skd1XPbtIKXaVH5vX-u-QFss" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBf9S6exX8Skd1XPbtIKXaVH5vX-u-QFss" />
+
     </application>
 
 </manifest>

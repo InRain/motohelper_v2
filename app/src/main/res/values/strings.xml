@@ -34,7 +34,6 @@
     <string name="title_activity_main_map">MainMapActivity</string>
 
 
-
     <!-- MAIN MAP SCREEN MENU   -->
     <string name="map_and_markers">Map and markers</string>
     <string name="settings">Settings</string>
@@ -45,5 +44,10 @@
     <string name="actions">Actions</string>
     <string name="action_refresh">Refresh</string>
     <string name="accept">Accept</string>
+
+    <!--MAP-->
+    <string name="api_map_key">AIzaSyBf9S6exX8Skd1XPbtIKXaVH5vX-u-QFss</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -20,8 +20,8 @@ import com.helper.moto.register.RegisterActivity
 import com.helper.moto.basecomponents.PreferencesName
 import kotlinx.android.synthetic.main.activity_login.*
 
-const val LOGIN_KEY:String = "LOGIN"
-const val PASSWORD_KEY:String = "PASSWORD"
+const val LOGIN_KEY: String = "LOGIN"
+const val PASSWORD_KEY: String = "PASSWORD"
 
 class LoginActivity : Activity(), LoginView {
 
@@ -29,6 +29,8 @@ class LoginActivity : Activity(), LoginView {
 
     private val INTERNET_PERMISSION_CODE: Int = 10001
     private val ACCESS_FINE_LOCATION_PERMISSON_CODE: Int = 20002
+    private val WRITE_EXTERNAL_STORAGE_PERMISSION_CODE: Int = 30003
+    private val READ_EXTERNAL_STORAGE_PERMISSION_CODE: Int = 40004
 
     private lateinit var sharedPreferences: SharedPreferences
 
@@ -38,6 +40,7 @@ class LoginActivity : Activity(), LoginView {
         setContentView(R.layout.activity_login)
         initializeUI()
         sharedPreferences = getSharedPreferences(PreferencesName.AUTH.name, Context.MODE_PRIVATE)
+
         if (!isPermissionGranted(Manifest.permission.INTERNET)) {
             requestPermission(Manifest.permission.INTERNET, INTERNET_PERMISSION_CODE)
         }
@@ -47,9 +50,21 @@ class LoginActivity : Activity(), LoginView {
                 ACCESS_FINE_LOCATION_PERMISSON_CODE
             )
         }
+        if (!isPermissionGranted(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+            requestPermission(
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                WRITE_EXTERNAL_STORAGE_PERMISSION_CODE
+            )
+        }
+        if (!isPermissionGranted(Manifest.permission.READ_EXTERNAL_STORAGE)) {
+            requestPermission(
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                READ_EXTERNAL_STORAGE_PERMISSION_CODE
+            )
+        }
         loginPresenter = LoginPresenterImpl(this)
-        val login = sharedPreferences.getString(LOGIN_KEY,null)
-        val password = sharedPreferences.getString(PASSWORD_KEY,null)
+        val login = sharedPreferences.getString(LOGIN_KEY, null)
+        val password = sharedPreferences.getString(PASSWORD_KEY, null)
 
     }
 
@@ -61,12 +76,12 @@ class LoginActivity : Activity(), LoginView {
         }
     }
 
-    fun initializeUI() {
+    private fun initializeUI() {
         signInButton.setOnClickListener {
-            if(rememberMeCheckBox.isChecked){
+            if (rememberMeCheckBox.isChecked) {
                 val editor = sharedPreferences.edit()
-                editor.putString(LOGIN_KEY,userNameEditText.text.toString())
-                editor.putString(PASSWORD_KEY,passwordEditText.text.toString())
+                editor.putString(LOGIN_KEY, userNameEditText.text.toString())
+                editor.putString(PASSWORD_KEY, passwordEditText.text.toString())
                 editor.apply()
             }
             loginPresenter.doLogin(
@@ -75,7 +90,7 @@ class LoginActivity : Activity(), LoginView {
             )
         }
 
-        registerButton.setOnClickListener{
+        registerButton.setOnClickListener {
             loginPresenter.showRegisterScreen()
         }
 
@@ -118,6 +133,9 @@ class LoginActivity : Activity(), LoginView {
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
+        if(grantResults.isEmpty()){
+            super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        }
         if (requestCode == INTERNET_PERMISSION_CODE) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Toast.makeText(this, "Permissions granted", Toast.LENGTH_SHORT).show()
@@ -130,7 +148,20 @@ class LoginActivity : Activity(), LoginView {
             } else {
                 showPermissionDialog(this)
             }
-        } else {
+        } else if(requestCode == READ_EXTERNAL_STORAGE_PERMISSION_CODE){
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this, "Permissions granted", Toast.LENGTH_SHORT).show()
+            } else {
+                showPermissionDialog(this)
+            }
+        } else if(requestCode == WRITE_EXTERNAL_STORAGE_PERMISSION_CODE){
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this, "Permissions granted", Toast.LENGTH_SHORT).show()
+            } else {
+                showPermissionDialog(this)
+            }
+        }
+        else {
             super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         }
     }
