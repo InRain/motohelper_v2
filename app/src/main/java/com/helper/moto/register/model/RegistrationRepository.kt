@@ -7,6 +7,6 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface RegistrationRepository {
-    @POST("/api/registration/")
+    @POST("/mhserver/api/registration/")
     fun doRegistration(@Body applicationUser: ApplicationUser) : Call<RegistrationResponse>
 }

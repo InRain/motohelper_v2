@@ -7,7 +7,7 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface LoginRepository {
-    @POST("/api/auth/login")
+    @POST("/mhserver/api/auth/login")
     fun doLogin(
         @Body loginRequestDTO: LoginRequest
     ) : Call<LoginResponse>
