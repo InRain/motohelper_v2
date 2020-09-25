@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:id="@+id/addVehicleRoot">
+
+    <EditText
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/vehicleNameEditText"
+        android:hint="@string/enter_vehicle_name"/>
+
+    <EditText
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/vehicleRunEditText"
+        android:inputType="number"
+        android:hint="@string/enter_vehicle_mileage"/>
+
+    <Spinner
+        android:id="@+id/vehicleTypeSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:tooltipText="@string/vehicle_type" />
+
+    <ImageButton
+        android:tooltipText="@string/vehicle_type_button_description"
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/selectPictureButton"
+        android:background="@drawable/ic_take_picture"
+        android:contentDescription="@string/vehicle_type_button_description"
+        android:layout_gravity="center"/>
+</LinearLayout>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.helper.moto">
+    package="com.helper.road">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -10,7 +10,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".MotoHelperApplication"
+        android:name="com.helper.road.MotoHelperApplication"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -18,22 +18,20 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".mainscreen.MainMapActivity"
-            android:label="@string/title_activity_main_map"
+            android:name="com.helper.road.garageflow.GarageFlowMainActivity"
+            android:label="@string/title_activity_garage_flow_main"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".register.RegisterActivity"
-            android:label="@string/title_activity_register">
+            android:name="com.helper.road.mainscreen.MainMapActivity"
+            android:label="@string/title_activity_main_map"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.helper.road.register.RegisterActivity"
+            android:label="@string/title_activity_register"/>
+
+        <activity android:name="com.helper.road.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".login.LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -44,11 +42,9 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBf9S6exX8Skd1XPbtIKXaVH5vX-u-QFss" />
-
     </application>
 
 </manifest>

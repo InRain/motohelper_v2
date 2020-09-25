@@ -6,5 +6,8 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="colorTransparentGrey">#46433E3E</color>
     <color name="colorGrey">#979797</color>
+    <color name="colorLightGrey">#E4E4E4</color>
     <color name="colorRed">#FF0000</color>
+    <color name="vehicleNameColor">#03A9F4</color>
+    <color name="transparent">#00FFFFFF</color>
 </resources>
