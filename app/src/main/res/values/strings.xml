@@ -4,6 +4,7 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="cancel">Cancel</string>
     <string name="ok">OK</string>
+    <string name="add_text">Add</string>
 
     <!--LOGIN SCREEN-->
     <string name="prompt_email">Email</string>
@@ -47,7 +48,16 @@
 
     <!--MAP-->
     <string name="api_map_key">AIzaSyBf9S6exX8Skd1XPbtIKXaVH5vX-u-QFss</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!--GARAGE FLOW-->
+    <string name="my_garage">Garage</string>
+    <string name="enter_vehicle_name">Enter name</string>
+    <string name="enter_vehicle_mileage">Enter mileage</string>
+    <string name="vehicle_type">Select type</string>
+    <string name="vehicle_type_button_description">Select type of your vehicle</string>
+    <string name="add_vehicle_title">Add vehicle</string>
+    <string name="atv">ATV</string>
+    <string name="car">Car</string>
+    <string name="motorcycle">Motorcycle</string>
+    <string name="title_activity_garage_flow_main">Garage</string>
 </resources>

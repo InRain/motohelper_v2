@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group android:checkableBehavior="single">
+    <group>
         <item
             android:id="@+id/nav_map"
             android:icon="@drawable/ic_vector_map"
@@ -14,6 +14,16 @@
             android:icon="@drawable/ic_vector_filter"
             android:title="@string/filter_settings" />
     </group>
+
+    <item android:title="">
+        <menu>
+            <item
+                android:id="@+id/garage"
+                android:icon="@drawable/ic_garage"
+                android:title="My Garage" />
+
+        </menu>
+    </item>
 
     <item android:title="@string/social_networks">
         <menu>
